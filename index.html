@@ -20,14 +20,14 @@
   body::before{content:'';position:fixed;inset:-18%;background:conic-gradient(from 0deg,rgba(225,29,72,0.08),rgba(251,113,133,0.1),rgba(225,29,72,0.06),rgba(255,228,232,0.12));filter:blur(90px);animation:rotateGlow 24s linear infinite;z-index:0;pointer-events:none;}
   .site{font-family:'Outfit',sans-serif;background:radial-gradient(circle at 10% 0%,rgba(225,29,72,0.12),transparent 40%),radial-gradient(circle at 90% 12%,rgba(251,113,133,0.1),transparent 36%),linear-gradient(165deg,var(--bg) 0%,var(--bg-2) 100%) fixed;background-color:var(--bg);color:var(--text);min-height:100vh;position:relative;}
   .site > *{position:relative;z-index:1;}
-  nav{display:flex;justify-content:space-between;align-items:center;padding:1.1rem 2rem;background:rgba(255,248,240,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:0.5px solid var(--line);position:sticky;top:0;z-index:1000;overflow:visible;}
+  nav{display:flex;justify-content:space-between;align-items:center;padding:1.1rem 2rem;background:rgba(255,248,240,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:0.5px solid var(--line);position:sticky;top:0;z-index:100;overflow:visible;}
   .logo{font-family:'Playfair Display',serif;font-size:22px;color:var(--text);}.logo span{color:var(--accent);}
   nav ul{display:flex;list-style:none;gap:1.8rem;overflow:visible;}
   nav ul li{position:relative;}
   nav ul a{font-size:13px;color:var(--text-soft);text-decoration:none;cursor:pointer;transition:color 0.2s;}
   nav ul a:hover{color:var(--text);}
   .nav-dropdown > a{display:flex;align-items:center;gap:4px;}
-  #info-menu{position:absolute;top:calc(100% + 14px);right:0;background:rgba(255,248,240,0.92);backdrop-filter:blur(16px);border:0.5px solid var(--line);border-radius:14px;padding:8px;min-width:210px;box-shadow:0 16px 40px rgba(225,29,72,0.14);z-index:9999;}
+  #info-menu{position:absolute;top:calc(100% + 14px);right:0;background:rgba(255,248,240,0.92);backdrop-filter:blur(16px);border:0.5px solid var(--line);border-radius:14px;padding:8px;min-width:210px;box-shadow:0 16px 40px rgba(225,29,72,0.14);z-index:500;}
   .nav-cta{background:linear-gradient(135deg,var(--accent),var(--accent-2))!important;color:#fff!important;padding:7px 16px;border-radius:999px;font-weight:500!important;box-shadow:0 10px 24px rgba(225,29,72,0.25);}
   .hero{padding:3rem 1.6rem 2rem;max-width:860px;margin:0 auto;}
   .hero-badge{display:inline-block;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);border:0.5px solid rgba(225,29,72,0.45);background:rgba(225,29,72,0.12);padding:5px 14px;border-radius:999px;margin-bottom:1.1rem;}
@@ -230,7 +230,7 @@
   <div class="mob-nav">
     <button onclick="toggleMobMenu(event)" style="background:rgba(225,29,72,0.08);border:0.5px solid var(--line);color:var(--text);font-size:13px;font-family:'Outfit',sans-serif;padding:7px 13px;border-radius:999px;cursor:pointer;">Info ▾</button>
     <button onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})" style="background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;border:none;font-size:13px;font-family:'Outfit',sans-serif;padding:7px 14px;border-radius:999px;cursor:pointer;font-weight:500;">Book</button>
-    <div id="mob-menu" style="display:none;position:absolute;top:calc(100% + 8px);right:1rem;background:rgba(255,245,245,0.97);backdrop-filter:blur(16px);border:0.5px solid var(--line);border-radius:14px;padding:8px;min-width:210px;box-shadow:0 16px 40px rgba(225,29,72,0.14);z-index:9999;">
+    <div id="mob-menu" style="display:none;position:absolute;top:calc(100% + 8px);right:1rem;background:rgba(255,245,245,0.97);backdrop-filter:blur(16px);border:0.5px solid var(--line);border-radius:14px;padding:8px;min-width:210px;box-shadow:0 16px 40px rgba(225,29,72,0.14);z-index:500;">
       <div class="info-menu-item" onclick="showPopup('whyus');closeMobMenu()">🏆 Why choose us?</div>
       <div class="info-menu-item" onclick="showPopup('sizeguide');closeMobMenu()">🚗 Vehicle size guide</div>
       <div class="info-menu-item" onclick="showPopup('faq');closeMobMenu()">❓ FAQ</div>

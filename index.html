@@ -19,11 +19,14 @@
   body::before{content:'';position:fixed;inset:-18%;background:conic-gradient(from 0deg, rgba(251,113,133,0.1), rgba(254,202,202,0.12), rgba(251,180,195,0.08), rgba(251,113,133,0.1));filter:blur(90px);animation:rotateGlow 24s linear infinite;z-index:0;pointer-events:none;}
   .site{font-family:'Outfit',sans-serif;background:radial-gradient(circle at 10% 0%, rgba(251,113,133,0.2), transparent 40%),radial-gradient(circle at 90% 12%, rgba(254,202,202,0.12), transparent 36%),linear-gradient(165deg,var(--bg) 0%,var(--bg-2) 100%) fixed;background-color:var(--bg);color:var(--text);min-height:100vh;position:relative;}
   .site > *{position:relative;z-index:1;}
-  nav{display:flex;justify-content:space-between;align-items:center;padding:1.1rem 2rem;background:rgba(255,251,235,0.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:0.5px solid var(--line);position:sticky;top:0;z-index:1000;}
+  nav{display:flex;justify-content:space-between;align-items:center;padding:1.1rem 2rem;background:rgba(255,251,235,0.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:0.5px solid var(--line);position:sticky;top:0;z-index:1000;overflow:visible;}
   .logo{font-family:'Playfair Display',serif;font-size:22px;color:var(--text);}.logo span{color:var(--accent);}
-  nav ul{display:flex;list-style:none;gap:1.8rem;}
-  nav ul a{font-size:13px;color:var(--text-soft);text-decoration:none;cursor:pointer;transition:color 0.2s,transform 0.2s;}
-  nav ul a:hover{color:var(--text);transform:translateY(-1px);}
+  nav ul{display:flex;list-style:none;gap:1.8rem;overflow:visible;}
+  nav ul li{position:relative;}
+  nav ul a{font-size:13px;color:var(--text-soft);text-decoration:none;cursor:pointer;transition:color 0.2s;}
+  nav ul a:hover{color:var(--text);}
+  .nav-dropdown > a{display:flex;align-items:center;gap:4px;}
+  #info-menu{position:absolute;top:calc(100% + 14px);right:0;background:rgba(255,251,235,0.99);backdrop-filter:blur(16px);border:0.5px solid var(--line);border-radius:14px;padding:8px;min-width:210px;box-shadow:0 16px 40px rgba(153,27,27,0.14);z-index:9999;}
   .nav-cta{background:linear-gradient(135deg,var(--accent),var(--accent-2))!important;color:#991b1b!important;padding:7px 16px;border-radius:999px;font-weight:500!important;box-shadow:0 10px 24px rgba(251,113,133,0.25);}
   .hero{padding:3rem 1.6rem 2rem;max-width:860px;margin:0 auto;}
   .hero-badge{display:inline-block;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);border:0.5px solid rgba(251,113,133,0.45);background:rgba(251,113,133,0.12);padding:5px 14px;border-radius:999px;margin-bottom:1.1rem;}
@@ -54,9 +57,9 @@
   .pbtn-d{background:transparent;color:var(--text-soft);border:0.5px solid rgba(153,27,27,0.22);}
   .pbtn-d:hover{opacity:0.75;}
   .pbtn-t{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#991b1b;border:none;}
-  .small-note{font-size:11px;color:var(--text-dim);margin-top:7px;}
+  .small-note{font-size:12px;color:var(--text-dim);margin-top:7px;line-height:1.6;}
   .sub-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
-  .sub-c{background:var(--card-soft);border:0.5px solid var(--line);border-radius:14px;padding:1.1rem 1rem;position:relative;overflow:hidden;transition:border-color 0.2s,transform 0.2s,box-shadow 0.2s;}
+  .sub-c{display:flex;flex-direction:column;background:var(--card-soft);border:0.5px solid var(--line);border-radius:14px;padding:1.1rem 1rem;position:relative;overflow:hidden;transition:border-color 0.2s,transform 0.2s,box-shadow 0.2s;}
   .sub-c:hover{border-color:rgba(251,113,133,0.42);transform:translateY(-3px);box-shadow:0 12px 24px rgba(153,27,27,0.1);}
   .sub-c.pop{border-color:var(--danger);}
   .pop-badge{position:absolute;top:0;right:0;background:var(--danger);color:#fff;font-size:10px;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border-radius:0 14px 0 14px;}
@@ -66,13 +69,17 @@
   .sprice{font-family:'Playfair Display',serif;font-size:32px;color:var(--accent);line-height:1;}
   .sper{font-size:12px;color:var(--text-dim);}
   .ssave{font-size:11px;color:var(--danger);margin-bottom:0.75rem;}
-  .slist{list-style:none;display:flex;flex-direction:column;gap:5px;margin-bottom:0.9rem;}
+  .slist{list-style:none;display:flex;flex-direction:column;gap:5px;flex:1 1 auto;margin-bottom:0.75rem;}
   .slist li{font-size:12px;color:var(--text-soft);display:flex;align-items:flex-start;gap:7px;}
   .slist li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--danger);margin-top:5px;flex-shrink:0;}
-  .sbtn{width:100%;padding:9px;font-family:'Outfit',sans-serif;font-size:12px;font-weight:500;border-radius:999px;cursor:pointer;background:transparent;border:0.5px solid rgba(153,27,27,0.2);color:var(--text-soft);transition:all 0.2s;}
+  .sbtn{margin-top:auto;width:100%;padding:9px;font-family:'Outfit',sans-serif;font-size:12px;font-weight:500;border-radius:999px;cursor:pointer;background:transparent;border:0.5px solid rgba(153,27,27,0.2);color:var(--text-soft);transition:all 0.2s;}
   .sbtn:hover{border-color:rgba(251,113,133,0.65);color:var(--accent);}
   .sbtn.pop-btn{background:var(--danger);color:#fff;border:none;}
   .wa-btn{display:flex;align-items:center;justify-content:center;gap:7px;text-decoration:none;}
+  .plan-terms{font-size:11px;color:var(--text-dim);line-height:1.8;margin-top:14px;border-top:0.5px solid var(--line);padding-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:6px 20px;}
+  .plan-terms .term{display:flex;gap:6px;align-items:flex-start;}
+  .plan-terms .term-icon{font-size:12px;flex-shrink:0;margin-top:1px;}
+  .plan-terms strong{color:var(--text);font-weight:500;}
   .booking-wrap{display:block;}
   .calendar-card{background:var(--card-soft);border:0.5px solid var(--line);backdrop-filter:blur(8px);border-radius:16px;padding:1rem 1rem 0.8rem;}
   .calendar-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:10px;}
@@ -85,22 +92,135 @@
   #calendly-test .slabel,#calendly-test h2,#calendly-test .calendar-note{max-width:860px;margin-left:auto;margin-right:auto;padding-left:2rem;padding-right:2rem;}
   footer{padding:1.8rem 2rem;text-align:center;border-top:0.5px solid rgba(153,27,27,0.12);}
   footer p{font-size:11px;color:var(--text-dim);}
-  @keyframes rotateGlow{from{transform:rotate(0deg) scale(1);}to{transform:rotate(360deg) scale(1.05);}}
+  .info-menu-item{padding:9px 14px;font-size:13px;color:var(--text-soft);cursor:pointer;border-radius:8px;transition:background 0.15s,color 0.15s;white-space:nowrap;}
+  .info-menu-item:hover{background:rgba(251,113,133,0.1);color:var(--text);}
+  .info-menu-sep{height:0.5px;background:var(--line);margin:6px 8px;}
+  /* Popup inner styles */
+  .pop-slabel{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:6px;}
+  .pop-h2{font-family:'Playfair Display',serif;font-size:24px;color:var(--text);margin-bottom:1.2rem;letter-spacing:-0.3px;}
+  .pop-card{background:rgba(255,251,235,0.7);border:0.5px solid var(--line);border-radius:12px;padding:1.1rem;}
+  /* Why us */
+  .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+  .why-card{background:rgba(255,251,235,0.8);border:0.5px solid var(--line);border-radius:12px;padding:1rem;}
+  .why-icon{font-size:24px;margin-bottom:6px;}
+  .why-title{font-size:13px;font-weight:500;color:var(--text);margin-bottom:3px;}
+  .why-desc{font-size:12px;color:var(--text-dim);line-height:1.55;}
+  /* Reviews */
+  .rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
+  .rev-card{background:rgba(255,251,235,0.8);border:0.5px solid var(--line);border-radius:12px;padding:1rem;display:flex;flex-direction:column;gap:7px;}
+  .rev-stars{color:#fbbf24;font-size:13px;}
+  .rev-text{font-size:12px;color:var(--text-soft);line-height:1.6;flex:1;}
+  .rev-author{display:flex;align-items:center;gap:8px;}
+  .rev-avatar{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;color:#fff;flex-shrink:0;}
+  .rev-name{font-size:12px;font-weight:500;color:var(--text);}
+  .rev-date{font-size:11px;color:var(--text-dim);}
+  /* Size table */
+  .pop-size-table{width:100%;border-collapse:collapse;font-size:12px;}
+  .pop-size-table thead tr{background:rgba(251,113,133,0.1);}
+  .pop-size-table th{padding:8px 12px;text-align:left;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-dim);font-weight:500;}
+  .pop-size-table td{padding:9px 12px;border-bottom:0.5px solid var(--line);color:var(--text-soft);}
+  .pop-size-table tr:last-child td{border-bottom:none;}
+  .sz-badge{display:inline-block;font-size:10px;font-weight:500;padding:2px 7px;border-radius:999px;}
+  .sz-s{background:rgba(16,185,129,0.12);color:#065f46;}
+  .sz-m{background:rgba(251,113,133,0.12);color:#991B1B;}
+  .sz-l{background:rgba(245,158,11,0.12);color:#92400e;}
+  .sz-xl{background:rgba(107,114,128,0.12);color:#374151;}
+  /* FAQ */
+  .pop-faq{display:flex;flex-direction:column;gap:7px;}
+  .pop-faq-item{background:rgba(255,251,235,0.8);border:0.5px solid var(--line);border-radius:10px;overflow:hidden;}
+  .pop-faq-q{width:100%;text-align:left;background:transparent;border:none;padding:0.85rem 1rem;font-family:'Outfit',sans-serif;font-size:13px;font-weight:500;color:var(--text);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;}
+  .pop-faq-q::after{content:'+';font-size:18px;color:var(--accent);flex-shrink:0;transition:transform 0.2s;}
+  .pop-faq-item.open .pop-faq-q::after{transform:rotate(45deg);}
+  .pop-faq-a{font-size:12px;color:var(--text-soft);line-height:1.7;max-height:0;overflow:hidden;transition:max-height 0.3s,padding 0.3s;}
+  .pop-faq-item.open .pop-faq-a{max-height:160px;padding:0 1rem 0.85rem;}
+  /* Map */
+  .pc-tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:12px;}
+  .pc-tag{font-size:11px;color:var(--text);border:0.5px solid var(--line);background:rgba(255,251,235,0.8);padding:4px 11px;border-radius:999px;}
+  .pc-tag.pri{background:rgba(251,113,133,0.12);border-color:rgba(251,113,133,0.4);color:var(--accent);font-weight:500;}
+  /* Voucher */
+  .voucher-card-pop{background:linear-gradient(135deg,#fff7f0,#FECACA);border:0.5px solid rgba(251,113,133,0.35);border-radius:14px;padding:1.4rem;position:relative;overflow:hidden;margin-bottom:14px;}
+  .voucher-card-pop::before{content:'';position:absolute;top:-24px;right:-24px;width:100px;height:100px;background:rgba(251,113,133,0.1);border-radius:50%;}
+  .vc-logo{font-family:'Playfair Display',serif;font-size:16px;color:var(--text);margin-bottom:4px;position:relative;}
+  .vc-logo span{color:var(--accent);}
+  .vc-amount{font-family:'Playfair Display',serif;font-size:38px;color:var(--text);line-height:1;position:relative;}
+  .vc-desc{font-size:11px;color:var(--text-soft);margin-top:3px;position:relative;}
+  .vc-divider{border:none;border-top:1px dashed rgba(153,27,27,0.2);margin:10px 0;position:relative;}
+  .vc-code{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--text-dim);position:relative;}
+  .pop-input{width:100%;background:rgba(255,255,255,0.7);border:0.5px solid var(--line);color:var(--text);padding:9px 13px;font-family:'Outfit',sans-serif;font-size:13px;border-radius:10px;outline:none;transition:border-color 0.2s;margin-bottom:10px;}
+  .pop-input:focus{border-color:rgba(251,113,133,0.5);}
+  /* Fleet */
+  .fleet-tiers-pop{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px;}
+  .ft-pop{background:rgba(255,251,235,0.8);border:0.5px solid var(--line);border-radius:10px;padding:0.85rem;text-align:center;}
+  .ft-pop.best{border-color:rgba(251,113,133,0.4);background:rgba(251,113,133,0.06);}
+  .ft-v{font-size:11px;color:var(--text-dim);margin-bottom:3px;}
+  .ft-d{font-family:'Playfair Display',serif;font-size:22px;color:var(--accent);}
+  .ft-l{font-size:10px;color:var(--text-dim);margin-top:2px;}
+  .fleet-perks-pop{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px;}
+  .fp-item{display:flex;gap:10px;align-items:flex-start;}
+  .fp-icon{font-size:18px;flex-shrink:0;}
+  .fp-title{font-size:12px;font-weight:500;color:var(--text);margin-bottom:2px;}
+  .fp-desc{font-size:11px;color:var(--text-dim);line-height:1.5;}
+  @media(max-width:640px){.why-grid,.rev-grid{grid-template-columns:1fr 1fr;}.fleet-perks-pop{grid-template-columns:1fr;}}
+  @media(max-width:400px){.why-grid,.rev-grid,.fleet-tiers-pop{grid-template-columns:1fr;}}
   #booking{max-width:860px;}
   #booking .calendar-card{padding:1.35rem;}
   #booking .calendar-embed{height:980px;}
   @media(max-width:880px){.booking-wrap{display:block;}#booking{max-width:860px;}}
-  @media(max-width:640px){.pkgs,.sub-grid{grid-template-columns:1fr 1fr;}nav ul{display:none;}#booking .calendar-embed{height:900px;}#calendly-test .slabel,#calendly-test h2,#calendly-test .calendar-note{padding-left:1rem;padding-right:1rem;}}
+  @media(max-width:640px){
+    nav{padding:0.95rem 1rem;}
+    .logo{font-size:24px;}
+    .hero{padding:2.4rem 1rem 1.6rem;}
+    .hero-badge{font-size:12px;letter-spacing:1.6px;padding:6px 12px;}
+    h1{font-size:clamp(36px,10vw,48px);line-height:1.04;}
+    .hero-sub{font-size:17px;line-height:1.7;max-width:none;}
+    .hero-actions{gap:10px;}
+    .btn-p,.btn-g{width:100%;padding:14px 20px;font-size:15px;}
+    section{padding:1.8rem 1rem;}
+    .slabel{font-size:12px;letter-spacing:2px;}
+    h2{font-size:clamp(28px,7vw,34px);line-height:1.12;margin-bottom:1rem;}
+    .pkgs,.sub-grid{grid-template-columns:1fr 1fr;}
+    .pkg,.sub-c{padding:1rem 0.9rem;}
+    .ptier,.sfreq{font-size:11px;}
+    .pprice,.sprice{font-size:34px;}
+    .plist li,.slist li{font-size:13px;}
+    .pbtn,.sbtn{padding:11px;font-size:13px;}
+    .small-note{font-size:13px;}
+    .plan-terms{grid-template-columns:1fr;font-size:12px;}
+    nav ul{display:none;}
+    #booking .calendar-embed{height:900px;}
+    #calendly-test .slabel,#calendly-test h2,#calendly-test .calendar-note{padding-left:1rem;padding-right:1rem;}
+  }
   @media(max-width:400px){.pkgs{grid-template-columns:1fr;}}
 </style>
 
 <div class="site">
+
+<!-- INFO POPUPS -->
+<div id="info-overlay" style="display:none;position:fixed;inset:0;background:rgba(153,27,27,0.15);backdrop-filter:blur(6px);z-index:2000;align-items:flex-start;justify-content:center;padding-top:70px;overflow-y:auto;" onclick="closeInfoPopup(event)">
+  <div id="info-modal" style="background:var(--bg);border:0.5px solid var(--line);border-radius:18px;width:100%;max-width:700px;max-height:80vh;overflow-y:auto;margin:0 1rem 2rem;position:relative;box-shadow:0 32px 64px rgba(153,27,27,0.18);">
+    <button onclick="closeInfoPopup({target:document.getElementById('info-overlay')})" style="position:sticky;top:0;float:right;margin:1rem 1rem 0 0;background:rgba(153,27,27,0.08);border:none;font-size:18px;color:var(--text-dim);cursor:pointer;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:10;">✕</button>
+    <div id="info-content" style="padding:1.8rem;clear:both;"></div>
+  </div>
+</div>
+
 <nav>
   <div class="logo">Gloss<span>.</span></div>
   <ul>
     <li><a onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Services</a></li>
     <li><a onclick="document.getElementById('plans').scrollIntoView({behavior:'smooth'})">Monthly plans</a></li>
-    <li><a onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">Booking</a></li>
+    <li class="nav-dropdown" style="position:relative;">
+      <a onclick="toggleInfoMenu(event)" style="display:flex;align-items:center;gap:4px;">Info <span id="info-chevron" style="font-size:10px;transition:transform 0.2s;">▾</span></a>
+      <div id="info-menu" style="display:none;">
+        <div class="info-menu-item" onclick="showPopup('whyus')">🏆 Why choose us?</div>
+        <div class="info-menu-item" onclick="showPopup('sizeguide')">🚗 Vehicle size guide</div>
+        <div class="info-menu-item" onclick="showPopup('faq')">❓ FAQ</div>
+        <div class="info-menu-item" onclick="showPopup('reviews')">★ Customer reviews</div>
+        <div class="info-menu-sep"></div>
+        <div class="info-menu-item" onclick="showPopup('voucher')">🎁 Gift vouchers</div>
+        <div class="info-menu-item" onclick="showPopup('fleet')">🚐 Fleet &amp; business</div>
+        <div class="info-menu-item" onclick="showPopup('map')">📍 Service area</div>
+      </div>
+    </li>
     <li><a class="nav-cta" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">Book now</a></li>
   </ul>
 </nav>
@@ -120,7 +240,7 @@
   <div class="pkg" onclick="openPkgModal('mini')"><div class="ptier">Mini Valet</div><div class="pprice">£40</div><div class="pfrom">~1 hr · standard car</div><ul class="plist"><li>Foam pre-wash + hand wash</li><li>Deep wheel clean</li><li>Tyre dressing</li><li>Full interior vacuum</li><li>Dashboard &amp; plastics wipe</li><li>Interior windows</li></ul><button class="pbtn pbtn-d">Select</button></div>
   <div class="pkg feat" onclick="openPkgModal('full')"><div class="pbadge">Most popular</div><div class="ptier">Full Valet</div><div class="pprice">£80</div><div class="pfrom">~2 hrs · standard car</div><ul class="plist"><li>Everything in Mini Valet</li><li>Deep interior clean</li><li>Seat &amp; upholstery shampoo</li><li>Leather &amp; trim treatment</li><li>Engine bay wipe</li><li>Wax protection</li><li>Air freshener</li></ul><button class="pbtn pbtn-t">Select</button></div>
   <div class="pkg" onclick="openPkgModal('premium')"><div class="ptier">Premium Detail</div><div class="pprice">£140</div><div class="pfrom">~3.5 hrs · standard car</div><ul class="plist"><li>Everything in Full Valet</li><li>Clay bar decontamination</li><li>Machine polish</li><li>Ceramic sealant</li><li>UV paint protection</li><li>6-month guarantee</li></ul><button class="pbtn pbtn-d">Select</button></div>
-</div><p class="small-note">SUV / van +£10-15. All prices include VAT.</p></section>
+</div><p class="small-note"><strong>All prices include VAT.</strong></p></section>
 
 <section id="plans" style="padding-top:1rem;"><div class="slabel">Monthly maintenance plans</div><h2>Keep it clean, <em>every month</em></h2><div class="sub-grid">
 <div class="sub-c"><div class="sfreq">Monthly</div><div class="sname">Keep It Fresh</div><div class="sprow"><div class="sprice">£22</div><div class="sper">/mo</div></div><div class="ssave">Save £3 vs one-off</div><ul class="slist"><li>1x express wash/month</li><li>Tyre dressing</li><li>Interior vacuum</li><li>Priority booking</li><li>Cancel anytime</li></ul><a class="sbtn wa-btn" href="https://wa.me/447700900000?text=Hi%20Gloss%2C%20I%27d%20like%20to%20sign%20up%20for%20the%20Keep%20It%20Fresh%20plan%20(%C2%A322%2Fmo)." target="_blank">
@@ -135,6 +255,12 @@
   <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.524 5.855L.057 23.886a.75.75 0 0 0 .906.98l6.207-1.632A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.695 9.695 0 0 1-4.942-1.354l-.355-.211-3.68.968.984-3.595-.231-.369A9.712 9.712 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
   Sign up on WhatsApp
 </a></div>
+</div>
+<div class="small-note plan-terms">
+  <div class="term"><span class="term-icon">🧽</span><span><strong>Initial Clean:</strong> The maintenance rate applies only after an initial Mini Valet, Full Valet, or Premium Detail service.</span></div>
+  <div class="term"><span class="term-icon">📅</span><span><strong>Eligibility:</strong> Subscription remains valid as long as the vehicle is cleaned at least once every 4 weeks.</span></div>
+  <div class="term"><span class="term-icon">📍</span><span><strong>Distance:</strong> Prices include travel within BN20–24 postcodes; locations further away may incur a small fuel surcharge.</span></div>
+  <div class="term"><span class="term-icon">⚠️</span><span><strong>Fair Use:</strong> Heavily soiled vehicles (excessive pet hair, mud, or mould) at the time of the maintenance visit may be subject to a one-off surcharge.</span></div>
 </div></section>
 
 <section id="booking" style="padding-top:1rem;">
@@ -504,5 +630,196 @@ function updateWALink() {
 
 // Close on Escape
 document.addEventListener('keydown', e=>{ if(e.key==='Escape') closePkgModal({}); });
+
+/* ── INFO POPUP SYSTEM ── */
+const INFO_CONTENT = {
+  whyus: `
+    <div class="pop-slabel">Why Gloss?</div>
+    <div class="pop-h2">Why choose us?</div>
+    <div class="why-grid">
+      <div class="why-card"><div class="why-icon">🚐</div><div class="why-title">Fully self-contained</div><div class="why-desc">Our van carries its own water and power. No hook-ups needed anywhere.</div></div>
+      <div class="why-card"><div class="why-icon">🛡️</div><div class="why-title">Fully insured</div><div class="why-desc">Public liability and treatment risk cover included. Your vehicle is safe.</div></div>
+      <div class="why-card"><div class="why-icon">🌿</div><div class="why-title">Eco-friendly products</div><div class="why-desc">pH-neutral, biodegradable products — kind to your car and the environment.</div></div>
+      <div class="why-card"><div class="why-icon">⏱️</div><div class="why-title">We come to you</div><div class="why-desc">At home, at work, or wherever your car is parked. No rearranging your day.</div></div>
+      <div class="why-card"><div class="why-icon">💳</div><div class="why-title">Pay on completion</div><div class="why-desc">No upfront payment. Card or cash — you pay once you're happy.</div></div>
+      <div class="why-card"><div class="why-icon">📅</div><div class="why-title">Flexible scheduling</div><div class="why-desc">Early mornings, evenings, weekends — we work around your schedule.</div></div>
+    </div>`,
+
+  sizeguide: `
+    <div class="pop-slabel">Pricing guide</div>
+    <div class="pop-h2">Vehicle size guide</div>
+    <div class="pop-card" style="padding:0;overflow:hidden;">
+      <table class="pop-size-table">
+        <thead><tr><th>Category</th><th>Examples</th><th>Wash&amp;Vac</th><th>Mini</th><th>Full</th><th>Premium</th></tr></thead>
+        <tbody>
+          <tr><td><span class="sz-badge sz-s">Small</span><div style="font-size:10px;color:var(--text-dim);">No surcharge</div></td><td>Fiesta, Polo, Mini, Corsa, Yaris</td><td>£25</td><td>£40</td><td>£80</td><td>£140</td></tr>
+          <tr><td><span class="sz-badge sz-m">Medium</span><div style="font-size:10px;color:var(--text-dim);">No surcharge</div></td><td>Golf, Focus, A3, BMW 3 Series</td><td>£25</td><td>£40</td><td>£80</td><td>£140</td></tr>
+          <tr><td><span class="sz-badge sz-l">Large / SUV</span><div style="font-size:10px;color:var(--text-dim);">+£10</div></td><td>BMW X5, Range Rover, Qashqai, Q5</td><td>£35</td><td>£50</td><td>£95</td><td>£155</td></tr>
+          <tr><td><span class="sz-badge sz-xl">XL / Van</span><div style="font-size:10px;color:var(--text-dim);">+£15</div></td><td>Ford Transit, VW Transporter, 7-seater</td><td>£40</td><td>£55</td><td>£105</td><td>£165</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:11px;color:var(--text-dim);margin-top:8px;">Not sure? Just mention your car model when booking and we'll confirm the category.</p>`,
+
+  faq: `
+    <div class="pop-slabel">Got questions?</div>
+    <div class="pop-h2">Frequently asked questions</div>
+    <div class="pop-faq">
+      <div class="pop-faq-item"><button class="pop-faq-q" onclick="togglePopFaq(this)">How long does each service take?</button><div class="pop-faq-a">Wash &amp; Vac ~30 mins, Mini Valet ~1 hour, Full Valet ~2 hours, Premium Detail ~3.5 hours. Heavily soiled vehicles may take a little longer.</div></div>
+      <div class="pop-faq-item"><button class="pop-faq-q" onclick="togglePopFaq(this)">Do you need water or electricity from me?</button><div class="pop-faq-a">Not at all. Our van is fully self-contained with its own water tank and power supply. We can valet anywhere — driveway, car park, workplace.</div></div>
+      <div class="pop-faq-item"><button class="pop-faq-q" onclick="togglePopFaq(this)">What if it rains on the day?</button><div class="pop-faq-a">Light rain isn't usually a problem for interior work. For exterior services we'll call you and reschedule at no charge if conditions aren't suitable.</div></div>
+      <div class="pop-faq-item"><button class="pop-faq-q" onclick="togglePopFaq(this)">Do I need to be present?</button><div class="pop-faq-a">No — as long as we have access to the vehicle you're free to carry on with your day. We'll message you when we're done.</div></div>
+      <div class="pop-faq-item"><button class="pop-faq-q" onclick="togglePopFaq(this)">What products do you use?</button><div class="pop-faq-a">Professional-grade, pH-neutral, biodegradable products. Safe for all paint types, plastics, leather and fabric. We can avoid specific products on request.</div></div>
+      <div class="pop-faq-item"><button class="pop-faq-q" onclick="togglePopFaq(this)">How do I pay?</button><div class="pop-faq-a">Payment is on completion — card (contactless or chip &amp; PIN) or cash. No payment is taken upfront.</div></div>
+      <div class="pop-faq-item"><button class="pop-faq-q" onclick="togglePopFaq(this)">Can I cancel or reschedule?</button><div class="pop-faq-a">Yes — just give us 24 hours' notice via WhatsApp and we'll happily reschedule. Last-minute cancellations on the day may incur a small charge.</div></div>
+    </div>`,
+
+  reviews: `
+    <div class="pop-slabel">What customers say</div>
+    <div class="pop-h2">Customer reviews</div>
+    <div class="rev-grid">
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"Absolutely brilliant — my car looks brand new. Turned up on time, incredibly thorough. Will definitely be booking again."</div><div class="rev-author"><div class="rev-avatar">S</div><div><div class="rev-name">Sarah M.</div><div class="rev-date">2 weeks ago</div></div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"Used the Full Valet and couldn't be happier. The interior was spotless — even got rid of the dog smell! Great value."</div><div class="rev-author"><div class="rev-avatar">J</div><div><div class="rev-name">James T.</div><div class="rev-date">1 month ago</div></div></div></div>
+      <div class="rev-card"><div class="rev-stars">★★★★★</div><div class="rev-text">"Super convenient, came to my workplace. Professional, friendly, and the result was exceptional. Highly recommended."</div><div class="rev-author"><div class="rev-avatar">R</div><div><div class="rev-name">Rachel K.</div><div class="rev-date">3 weeks ago</div></div></div></div>
+    </div>
+    <div style="margin-top:12px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
+      <span style="font-size:12px;color:var(--text-dim);">4.9 ★ average · Google Reviews</span>
+      <a href="#" style="font-size:12px;color:var(--accent);border:0.5px solid rgba(251,113,133,0.4);padding:7px 14px;border-radius:999px;text-decoration:none;background:rgba(251,113,133,0.06);">★ Leave a review — get £5 off</a>
+    </div>`,
+
+  map: `
+    <div class="pop-slabel">Coverage</div>
+    <div class="pop-h2">Service area</div>
+    <p style="font-size:13px;color:var(--text-soft);margin-bottom:12px;line-height:1.6;">We cover Eastbourne and the surrounding area. Core postcodes are included in all prices — a small fuel surcharge applies for extended areas.</p>
+    <div style="margin-bottom:8px;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--text-dim);">Core area — no surcharge</div>
+    <div class="pc-tags"><span class="pc-tag pri">BN20</span><span class="pc-tag pri">BN21</span><span class="pc-tag pri">BN22</span><span class="pc-tag pri">BN23</span><span class="pc-tag pri">BN24</span></div>
+    <div style="margin-bottom:8px;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--text-dim);">Extended area — +£3–5 fuel surcharge</div>
+    <div class="pc-tags"><span class="pc-tag">TN22</span><span class="pc-tag">TN20</span><span class="pc-tag">TN21</span><span class="pc-tag">BN25</span><span class="pc-tag">BN26</span><span class="pc-tag">BN8</span><span class="pc-tag">BN27</span></div>
+    <div style="background:rgba(251,113,133,0.07);border:0.5px solid rgba(251,113,133,0.2);border-radius:10px;padding:10px 14px;margin-top:10px;font-size:12px;color:var(--text-soft);line-height:1.6;">
+      <strong style="color:var(--text);">Not sure if we cover you?</strong> Drop us a WhatsApp with your postcode and we'll confirm. We do occasionally travel further for Premium Detail bookings.
+    </div>`,
+
+  voucher: `
+    <div class="pop-slabel">Gift someone a valet</div>
+    <div class="pop-h2">Gift vouchers</div>
+    <div class="voucher-card-pop">
+      <div class="vc-logo">Gloss<span>.</span></div>
+      <div class="vc-amount" id="vc-amount-display">£80</div>
+      <div class="vc-desc" id="vc-desc-display">Full Valet · Redeemable within 12 months</div>
+      <hr class="vc-divider"/>
+      <div class="vc-code">Mobile Valeting · Eastbourne</div>
+    </div>
+    <select class="pop-input" onchange="updateVoucher(this)">
+      <option value="25|Wash &amp; Vac">Wash &amp; Vac — £25</option>
+      <option value="40|Mini Valet">Mini Valet — £40</option>
+      <option value="80|Full Valet" selected>Full Valet — £80</option>
+      <option value="140|Premium Detail">Premium Detail — £140</option>
+    </select>
+    <input class="pop-input" type="text" placeholder="Recipient's name (optional)" id="vc-recipient"/>
+    <input class="pop-input" type="text" placeholder="Your message e.g. Happy Birthday!" id="vc-message"/>
+    <a id="vc-wa-btn" href="#" target="_blank" onclick="buildVoucherWA()" style="display:flex;align-items:center;justify-content:center;gap:8px;background:#25D366;color:#fff;padding:11px;border-radius:999px;font-family:'Outfit',sans-serif;font-size:13px;font-weight:500;text-decoration:none;">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.524 5.855L.057 23.886a.75.75 0 0 0 .906.98l6.207-1.632A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.695 9.695 0 0 1-4.942-1.354l-.355-.211-3.68.968.984-3.595-.231-.369A9.712 9.712 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+      Order via WhatsApp
+    </a>
+    <p style="font-size:11px;color:var(--text-dim);margin-top:8px;line-height:1.5;">We'll send a printable PDF voucher to your email within 2 hours of payment confirmation.</p>`,
+
+  fleet: `
+    <div class="pop-slabel">For businesses</div>
+    <div class="pop-h2">Fleet &amp; business</div>
+    <div class="fleet-tiers-pop">
+      <div class="ft-pop"><div class="ft-v">2–4 vehicles</div><div class="ft-d">10% off</div><div class="ft-l">per visit</div></div>
+      <div class="ft-pop best"><div class="ft-v">5–9 vehicles</div><div class="ft-d">15% off</div><div class="ft-l">per visit</div></div>
+      <div class="ft-pop"><div class="ft-v">10+ vehicles</div><div class="ft-d">20% off</div><div class="ft-l">per visit</div></div>
+    </div>
+    <div class="fleet-perks-pop" style="margin-bottom:14px;">
+      <div class="fp-item"><span class="fp-icon">🗓️</span><div><div class="fp-title">Regular scheduled visits</div><div class="fp-desc">Weekly, fortnightly or monthly — around your business hours.</div></div></div>
+      <div class="fp-item"><span class="fp-icon">🧾</span><div><div class="fp-title">Monthly invoicing</div><div class="fp-desc">One invoice per month covering all vehicles.</div></div></div>
+      <div class="fp-item"><span class="fp-icon">📍</span><div><div class="fp-title">On-site service</div><div class="fp-desc">We come to your premises — no downtime, no driver needed.</div></div></div>
+      <div class="fp-item"><span class="fp-icon">📋</span><div><div class="fp-title">Custom packages</div><div class="fp-desc">Bespoke pricing for larger fleets. Just get in touch.</div></div></div>
+    </div>
+    <input class="pop-input" type="text" placeholder="Company name" id="fl-company"/>
+    <input class="pop-input" type="text" placeholder="Contact name &amp; number" id="fl-contact"/>
+    <select class="pop-input" id="fl-size"><option value="">Number of vehicles</option><option>2–4 vehicles</option><option>5–9 vehicles</option><option>10+ vehicles</option></select>
+    <a id="fl-wa-btn" href="#" target="_blank" onclick="buildFleetWA()" style="display:flex;align-items:center;justify-content:center;gap:8px;background:#25D366;color:#fff;padding:11px;border-radius:999px;font-family:'Outfit',sans-serif;font-size:13px;font-weight:500;text-decoration:none;margin-top:4px;">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.524 5.855L.057 23.886a.75.75 0 0 0 .906.98l6.207-1.632A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.695 9.695 0 0 1-4.942-1.354l-.355-.211-3.68.968.984-3.595-.231-.369A9.712 9.712 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+      Send fleet enquiry
+    </a>`
+};
+
+let _infoMenuOpen = false;
+
+function toggleInfoMenu(e) {
+  e.stopPropagation();
+  _infoMenuOpen = !_infoMenuOpen;
+  document.getElementById('info-menu').style.display = _infoMenuOpen ? 'block' : 'none';
+  document.getElementById('info-chevron').style.transform = _infoMenuOpen ? 'rotate(180deg)' : '';
+}
+
+document.addEventListener('click', () => {
+  if (_infoMenuOpen) {
+    _infoMenuOpen = false;
+    document.getElementById('info-menu').style.display = 'none';
+    document.getElementById('info-chevron').style.transform = '';
+  }
+});
+
+function showPopup(key) {
+  _infoMenuOpen = false;
+  document.getElementById('info-menu').style.display = 'none';
+  document.getElementById('info-chevron').style.transform = '';
+  document.getElementById('info-content').innerHTML = INFO_CONTENT[key] || '';
+  const ov = document.getElementById('info-overlay');
+  ov.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+  setTimeout(() => ov.scrollTop = 0, 10);
+}
+
+function closeInfoPopup(e) {
+  if (e.target === document.getElementById('info-overlay') || e.target.tagName === 'BUTTON') {
+    document.getElementById('info-overlay').style.display = 'none';
+    document.body.style.overflow = '';
+  }
+}
+
+function togglePopFaq(btn) {
+  const item = btn.closest('.pop-faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.pop-faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+function updateVoucher(sel) {
+  const [price, name] = sel.value.split('|');
+  const d = document.getElementById('vc-amount-display');
+  const t = document.getElementById('vc-desc-display');
+  if (d) d.textContent = '£' + price;
+  if (t) t.textContent = name + ' · Redeemable within 12 months';
+}
+
+function buildVoucherWA() {
+  const sel = document.querySelector('.pop-input select, #info-content select');
+  const recipient = (document.getElementById('vc-recipient') || {}).value || '';
+  const message   = (document.getElementById('vc-message')   || {}).value || '';
+  const val = document.querySelector('#info-content select') ? document.querySelector('#info-content select').value.split('|') : ['80','Full Valet'];
+  let msg = `Hi Gloss, I'd like to order a gift voucher — ${val[1]} (£${val[0]}).`;
+  if (recipient) msg += ` For: ${recipient}.`;
+  if (message)   msg += ` Message: "${message}".`;
+  const btn = document.getElementById('vc-wa-btn');
+  if (btn) btn.href = 'https://wa.me/447700900000?text=' + encodeURIComponent(msg);
+}
+
+function buildFleetWA() {
+  const company = (document.getElementById('fl-company') || {}).value || '';
+  const contact = (document.getElementById('fl-contact') || {}).value || '';
+  const size    = (document.getElementById('fl-size')    || {}).value || '';
+  let msg = `Hi Gloss, I'd like to enquire about fleet valeting.`;
+  if (company) msg += ` Company: ${company}.`;
+  if (contact) msg += ` Contact: ${contact}.`;
+  if (size)    msg += ` Fleet size: ${size}.`;
+  const btn = document.getElementById('fl-wa-btn');
+  if (btn) btn.href = 'https://wa.me/447700900000?text=' + encodeURIComponent(msg);
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeInfoPopup({target: document.getElementById('info-overlay')}); } });
 </script>
 

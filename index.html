@@ -1,51 +1,52 @@
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Outfit:wght@300;400;500&display=swap');
   *{box-sizing:border-box;margin:0;padding:0;}
   :root{
-    --bg:#FFFBEB;
-    --bg-2:#FECACA;
-    --text:#991B1B;
-    --text-soft:rgba(153,27,27,0.7);
-    --text-dim:rgba(153,27,27,0.5);
-    --line:rgba(153,27,27,0.18);
-    --card:#fff7f0;
-    --card-soft:rgba(255,251,235,0.88);
-    --accent:#FB7185;
-    --accent-2:#FECACA;
-    --danger:#991B1B;
+    --bg:#FFF5F5;
+    --bg-2:#FFE4E8;
+    --text:#334155;
+    --text-soft:rgba(51,65,85,0.65);
+    --text-dim:rgba(51,65,85,0.4);
+    --line:rgba(225,29,72,0.18);
+    --card:#ffffff;
+    --card-soft:rgba(225,29,72,0.06);
+    --accent:#E11D48;
+    --accent-2:#FFE4E8;
+    --danger:#10B981;
   }
   html,body{overflow-x:hidden;margin:0;padding:0;}
-  body::before{content:'';position:fixed;inset:-18%;background:conic-gradient(from 0deg, rgba(251,113,133,0.1), rgba(254,202,202,0.12), rgba(251,180,195,0.08), rgba(251,113,133,0.1));filter:blur(90px);animation:rotateGlow 24s linear infinite;z-index:0;pointer-events:none;}
-  .site{font-family:'Outfit',sans-serif;background:radial-gradient(circle at 10% 0%, rgba(251,113,133,0.2), transparent 40%),radial-gradient(circle at 90% 12%, rgba(254,202,202,0.12), transparent 36%),linear-gradient(165deg,var(--bg) 0%,var(--bg-2) 100%) fixed;background-color:var(--bg);color:var(--text);min-height:100vh;position:relative;}
+  body::before{content:'';position:fixed;inset:-18%;background:conic-gradient(from 0deg,rgba(225,29,72,0.08),rgba(251,113,133,0.1),rgba(225,29,72,0.06),rgba(255,228,232,0.12));filter:blur(90px);animation:rotateGlow 24s linear infinite;z-index:0;pointer-events:none;}
+  .site{font-family:'Outfit',sans-serif;background:radial-gradient(circle at 10% 0%,rgba(225,29,72,0.12),transparent 40%),radial-gradient(circle at 90% 12%,rgba(251,113,133,0.1),transparent 36%),linear-gradient(165deg,var(--bg) 0%,var(--bg-2) 100%) fixed;background-color:var(--bg);color:var(--text);min-height:100vh;position:relative;}
   .site > *{position:relative;z-index:1;}
-  nav{display:flex;justify-content:space-between;align-items:center;padding:1.1rem 2rem;background:rgba(255,251,235,0.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:0.5px solid var(--line);position:sticky;top:0;z-index:1000;overflow:visible;}
+  nav{display:flex;justify-content:space-between;align-items:center;padding:1.1rem 2rem;background:rgba(255,248,240,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:0.5px solid var(--line);position:sticky;top:0;z-index:1000;overflow:visible;}
   .logo{font-family:'Playfair Display',serif;font-size:22px;color:var(--text);}.logo span{color:var(--accent);}
   nav ul{display:flex;list-style:none;gap:1.8rem;overflow:visible;}
   nav ul li{position:relative;}
   nav ul a{font-size:13px;color:var(--text-soft);text-decoration:none;cursor:pointer;transition:color 0.2s;}
   nav ul a:hover{color:var(--text);}
   .nav-dropdown > a{display:flex;align-items:center;gap:4px;}
-  #info-menu{position:absolute;top:calc(100% + 14px);right:0;background:rgba(255,251,235,0.99);backdrop-filter:blur(16px);border:0.5px solid var(--line);border-radius:14px;padding:8px;min-width:210px;box-shadow:0 16px 40px rgba(153,27,27,0.14);z-index:9999;}
-  .nav-cta{background:linear-gradient(135deg,var(--accent),var(--accent-2))!important;color:#991b1b!important;padding:7px 16px;border-radius:999px;font-weight:500!important;box-shadow:0 10px 24px rgba(251,113,133,0.25);}
+  #info-menu{position:absolute;top:calc(100% + 14px);right:0;background:rgba(255,248,240,0.92);backdrop-filter:blur(16px);border:0.5px solid var(--line);border-radius:14px;padding:8px;min-width:210px;box-shadow:0 16px 40px rgba(225,29,72,0.14);z-index:9999;}
+  .nav-cta{background:linear-gradient(135deg,var(--accent),var(--accent-2))!important;color:#fff!important;padding:7px 16px;border-radius:999px;font-weight:500!important;box-shadow:0 10px 24px rgba(225,29,72,0.25);}
   .hero{padding:3rem 1.6rem 2rem;max-width:860px;margin:0 auto;}
-  .hero-badge{display:inline-block;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);border:0.5px solid rgba(251,113,133,0.45);background:rgba(251,113,133,0.12);padding:5px 14px;border-radius:999px;margin-bottom:1.1rem;}
+  .hero-badge{display:inline-block;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);border:0.5px solid rgba(225,29,72,0.45);background:rgba(225,29,72,0.12);padding:5px 14px;border-radius:999px;margin-bottom:1.1rem;}
   h1{font-family:'Playfair Display',serif;font-size:clamp(34px,5vw,58px);line-height:1.06;letter-spacing:-1px;color:var(--text);margin-bottom:0.9rem;}
   h1 em{font-style:italic;color:var(--accent);}
   .hero-sub{font-size:16px;color:var(--text-soft);line-height:1.65;max-width:480px;margin-bottom:1.4rem;}
   .hero-actions{display:flex;gap:12px;flex-wrap:wrap;}
-  .btn-p{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#991b1b;border:none;padding:13px 26px;font-family:'Outfit',sans-serif;font-size:14px;font-weight:500;border-radius:999px;cursor:pointer;transition:transform 0.22s,box-shadow 0.22s;}
-  .btn-p:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(251,113,133,0.26);}
-  .btn-g{background:rgba(255,255,255,0.46);color:var(--text-soft);border:0.5px solid rgba(153,27,27,0.25);padding:13px 26px;font-family:'Outfit',sans-serif;font-size:14px;border-radius:999px;cursor:pointer;transition:border-color 0.22s,color 0.22s,transform 0.22s;}
+  .btn-p{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;border:none;padding:13px 26px;font-family:'Outfit',sans-serif;font-size:14px;font-weight:500;border-radius:999px;cursor:pointer;transition:transform 0.22s,box-shadow 0.22s;}
+  .btn-p:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(225,29,72,0.26);}
+  .btn-g{background:rgba(255,255,255,0.46);color:var(--text-soft);border:0.5px solid rgba(225,29,72,0.25);padding:13px 26px;font-family:'Outfit',sans-serif;font-size:14px;border-radius:999px;cursor:pointer;transition:border-color 0.22s,color 0.22s,transform 0.22s;}
   .btn-g:hover{border-color:rgba(251,113,133,0.6);color:var(--text);transform:translateY(-2px);}
   section{padding:2.2rem 1.6rem;max-width:860px;margin:0 auto;}
   .slabel{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);margin-bottom:0.55rem;}
   h2{font-family:'Playfair Display',serif;font-size:clamp(24px,3.5vw,36px);letter-spacing:-0.5px;color:var(--text);margin-bottom:1.2rem;line-height:1.12;}
   .pkgs{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;background:transparent;border:none;border-radius:12px;overflow:visible;}
   .pkg{display:flex;flex-direction:column;min-height:100%;background:var(--card-soft);border:0.5px solid var(--line);backdrop-filter:blur(8px);border-radius:14px;padding:1.15rem 1rem;transition:background 0.2s,transform 0.2s,border-color 0.2s,box-shadow 0.2s;}
-  .pkg:hover{background:#fff2e8;transform:translateY(-4px);border-color:rgba(251,113,133,0.4);box-shadow:0 16px 30px rgba(153,27,27,0.12);}
-  .pkg.feat{background:linear-gradient(145deg,rgba(251,113,133,0.18),rgba(254,202,202,0.42));border:1.2px solid var(--accent);}
-  .pbadge{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);background:rgba(251,113,133,0.15);padding:3px 8px;border-radius:999px;display:inline-block;margin-bottom:0.8rem;}
+  .pkg:hover{background:#fff0f3;transform:translateY(-4px);border-color:rgba(225,29,72,0.4);box-shadow:0 16px 30px rgba(225,29,72,0.12);}
+  .pkg.feat{background:linear-gradient(145deg,rgba(225,29,72,0.18),rgba(255,228,232,0.42));border:1.2px solid var(--accent);}
+  .pbadge{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);background:rgba(225,29,72,0.15);padding:3px 8px;border-radius:999px;display:inline-block;margin-bottom:0.8rem;}
   .ptier{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);margin-bottom:4px;}
   .pprice{font-family:'Playfair Display',serif;font-size:38px;color:var(--text);line-height:1;margin-bottom:2px;}
   .pkg.feat .pprice{color:var(--accent);}
@@ -54,13 +55,13 @@
   .plist li{font-size:12px;color:var(--text-soft);display:flex;align-items:flex-start;gap:7px;}
   .plist li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--accent);margin-top:5px;flex-shrink:0;}
   .pbtn{margin-top:auto;width:100%;padding:10px;font-family:'Outfit',sans-serif;font-size:12px;font-weight:500;border-radius:999px;cursor:pointer;transition:opacity 0.2s;align-self:stretch;}
-  .pbtn-d{background:transparent;color:var(--text-soft);border:0.5px solid rgba(153,27,27,0.22);}
+  .pbtn-d{background:transparent;color:var(--text-soft);border:0.5px solid rgba(225,29,72,0.22);}
   .pbtn-d:hover{opacity:0.75;}
-  .pbtn-t{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#991b1b;border:none;}
+  .pbtn-t{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;border:none;}
   .small-note{font-size:12px;color:var(--text-dim);margin-top:7px;line-height:1.6;}
   .sub-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
   .sub-c{display:flex;flex-direction:column;background:var(--card-soft);border:0.5px solid var(--line);border-radius:14px;padding:1.1rem 1rem;position:relative;overflow:hidden;transition:border-color 0.2s,transform 0.2s,box-shadow 0.2s;}
-  .sub-c:hover{border-color:rgba(251,113,133,0.42);transform:translateY(-3px);box-shadow:0 12px 24px rgba(153,27,27,0.1);}
+  .sub-c:hover{border-color:rgba(225,29,72,0.42);transform:translateY(-3px);box-shadow:0 12px 24px rgba(225,29,72,0.1);}
   .sub-c.pop{border-color:var(--danger);}
   .pop-badge{position:absolute;top:0;right:0;background:var(--danger);color:#fff;font-size:10px;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border-radius:0 14px 0 14px;}
   .sfreq{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);margin-bottom:4px;}
@@ -72,8 +73,8 @@
   .slist{list-style:none;display:flex;flex-direction:column;gap:5px;flex:1 1 auto;margin-bottom:0.75rem;}
   .slist li{font-size:12px;color:var(--text-soft);display:flex;align-items:flex-start;gap:7px;}
   .slist li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--danger);margin-top:5px;flex-shrink:0;}
-  .sbtn{margin-top:auto;width:100%;padding:9px;font-family:'Outfit',sans-serif;font-size:12px;font-weight:500;border-radius:999px;cursor:pointer;background:transparent;border:0.5px solid rgba(153,27,27,0.2);color:var(--text-soft);transition:all 0.2s;}
-  .sbtn:hover{border-color:rgba(251,113,133,0.65);color:var(--accent);}
+  .sbtn{margin-top:auto;width:100%;padding:9px;font-family:'Outfit',sans-serif;font-size:12px;font-weight:500;border-radius:999px;cursor:pointer;background:transparent;border:0.5px solid rgba(225,29,72,0.2);color:var(--text-soft);transition:all 0.2s;}
+  .sbtn:hover{border-color:rgba(225,29,72,0.65);color:var(--accent);}
   .sbtn.pop-btn{background:var(--danger);color:#fff;border:none;}
   .wa-btn{display:flex;align-items:center;justify-content:center;gap:7px;text-decoration:none;}
   .plan-terms{font-size:11px;color:var(--text-dim);line-height:1.8;margin-top:14px;border-top:0.5px solid var(--line);padding-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:6px 20px;}
@@ -90,25 +91,26 @@
   #calendly-test{max-width:none;padding-left:0;padding-right:0;}
   #calendly-test .calendly-inline-widget{width:100%!important;min-width:0!important;}
   #calendly-test .slabel,#calendly-test h2,#calendly-test .calendar-note{max-width:860px;margin-left:auto;margin-right:auto;padding-left:2rem;padding-right:2rem;}
-  footer{padding:1.8rem 2rem;text-align:center;border-top:0.5px solid rgba(153,27,27,0.12);}
+  footer{padding:1.8rem 2rem;text-align:center;border-top:0.5px solid rgba(225,29,72,0.12);}
   footer p{font-size:11px;color:var(--text-dim);}
+  .mob-nav{display:none;}
   .info-menu-item{padding:9px 14px;font-size:13px;color:var(--text-soft);cursor:pointer;border-radius:8px;transition:background 0.15s,color 0.15s;white-space:nowrap;}
-  .info-menu-item:hover{background:rgba(251,113,133,0.1);color:var(--text);}
+  .info-menu-item:hover{background:rgba(225,29,72,0.1);color:var(--text);}
   .info-menu-sep{height:0.5px;background:var(--line);margin:6px 8px;}
   /* Popup inner styles */
   .pop-slabel{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);margin-bottom:6px;}
   .pop-h2{font-family:'Playfair Display',serif;font-size:24px;color:var(--text);margin-bottom:1.2rem;letter-spacing:-0.3px;}
-  .pop-card{background:rgba(255,251,235,0.7);border:0.5px solid var(--line);border-radius:12px;padding:1.1rem;}
+  .pop-card{background:rgba(255,248,240,0.92);border:0.5px solid var(--line);border-radius:12px;padding:1.1rem;}
   /* Why us */
   .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
-  .why-card{background:rgba(255,251,235,0.8);border:0.5px solid var(--line);border-radius:12px;padding:1rem;}
+  .why-card{background:rgba(255,248,240,0.92);border:0.5px solid var(--line);border-radius:12px;padding:1rem;}
   .why-icon{font-size:24px;margin-bottom:6px;}
   .why-title{font-size:13px;font-weight:500;color:var(--text);margin-bottom:3px;}
   .why-desc{font-size:12px;color:var(--text-dim);line-height:1.55;}
   /* Reviews */
   .rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;}
-  .rev-card{background:rgba(255,251,235,0.8);border:0.5px solid var(--line);border-radius:12px;padding:1rem;display:flex;flex-direction:column;gap:7px;}
-  .rev-stars{color:#fbbf24;font-size:13px;}
+  .rev-card{background:rgba(255,248,240,0.92);border:0.5px solid var(--line);border-radius:12px;padding:1rem;display:flex;flex-direction:column;gap:7px;}
+  .rev-stars{color:#10B981;font-size:13px;}
   .rev-text{font-size:12px;color:var(--text-soft);line-height:1.6;flex:1;}
   .rev-author{display:flex;align-items:center;gap:8px;}
   .rev-avatar{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;color:#fff;flex-shrink:0;}
@@ -116,18 +118,18 @@
   .rev-date{font-size:11px;color:var(--text-dim);}
   /* Size table */
   .pop-size-table{width:100%;border-collapse:collapse;font-size:12px;}
-  .pop-size-table thead tr{background:rgba(251,113,133,0.1);}
+  .pop-size-table thead tr{background:rgba(225,29,72,0.1);}
   .pop-size-table th{padding:8px 12px;text-align:left;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-dim);font-weight:500;}
   .pop-size-table td{padding:9px 12px;border-bottom:0.5px solid var(--line);color:var(--text-soft);}
   .pop-size-table tr:last-child td{border-bottom:none;}
   .sz-badge{display:inline-block;font-size:10px;font-weight:500;padding:2px 7px;border-radius:999px;}
   .sz-s{background:rgba(16,185,129,0.12);color:#065f46;}
-  .sz-m{background:rgba(251,113,133,0.12);color:#991B1B;}
+  .sz-m{background:rgba(225,29,72,0.12);color:#334155;}
   .sz-l{background:rgba(245,158,11,0.12);color:#92400e;}
   .sz-xl{background:rgba(107,114,128,0.12);color:#374151;}
   /* FAQ */
   .pop-faq{display:flex;flex-direction:column;gap:7px;}
-  .pop-faq-item{background:rgba(255,251,235,0.8);border:0.5px solid var(--line);border-radius:10px;overflow:hidden;}
+  .pop-faq-item{background:rgba(255,248,240,0.92);border:0.5px solid var(--line);border-radius:10px;overflow:hidden;}
   .pop-faq-q{width:100%;text-align:left;background:transparent;border:none;padding:0.85rem 1rem;font-family:'Outfit',sans-serif;font-size:13px;font-weight:500;color:var(--text);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;}
   .pop-faq-q::after{content:'+';font-size:18px;color:var(--accent);flex-shrink:0;transition:transform 0.2s;}
   .pop-faq-item.open .pop-faq-q::after{transform:rotate(45deg);}
@@ -135,23 +137,23 @@
   .pop-faq-item.open .pop-faq-a{max-height:160px;padding:0 1rem 0.85rem;}
   /* Map */
   .pc-tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:12px;}
-  .pc-tag{font-size:11px;color:var(--text);border:0.5px solid var(--line);background:rgba(255,251,235,0.8);padding:4px 11px;border-radius:999px;}
-  .pc-tag.pri{background:rgba(251,113,133,0.12);border-color:rgba(251,113,133,0.4);color:var(--accent);font-weight:500;}
+  .pc-tag{font-size:11px;color:var(--text);border:0.5px solid var(--line);background:rgba(255,248,240,0.92);padding:4px 11px;border-radius:999px;}
+  .pc-tag.pri{background:rgba(225,29,72,0.12);border-color:rgba(225,29,72,0.4);color:var(--accent);font-weight:500;}
   /* Voucher */
-  .voucher-card-pop{background:linear-gradient(135deg,#fff7f0,#FECACA);border:0.5px solid rgba(251,113,133,0.35);border-radius:14px;padding:1.4rem;position:relative;overflow:hidden;margin-bottom:14px;}
-  .voucher-card-pop::before{content:'';position:absolute;top:-24px;right:-24px;width:100px;height:100px;background:rgba(251,113,133,0.1);border-radius:50%;}
+  .voucher-card-pop{background:linear-gradient(135deg,#FFF5F5,#FFE4E8);border:0.5px solid rgba(225,29,72,0.35);border-radius:14px;padding:1.4rem;position:relative;overflow:hidden;margin-bottom:14px;}
+  .voucher-card-pop::before{content:'';position:absolute;top:-24px;right:-24px;width:100px;height:100px;background:rgba(225,29,72,0.1);border-radius:50%;}
   .vc-logo{font-family:'Playfair Display',serif;font-size:16px;color:var(--text);margin-bottom:4px;position:relative;}
   .vc-logo span{color:var(--accent);}
   .vc-amount{font-family:'Playfair Display',serif;font-size:38px;color:var(--text);line-height:1;position:relative;}
   .vc-desc{font-size:11px;color:var(--text-soft);margin-top:3px;position:relative;}
-  .vc-divider{border:none;border-top:1px dashed rgba(153,27,27,0.2);margin:10px 0;position:relative;}
+  .vc-divider{border:none;border-top:1px dashed rgba(225,29,72,0.2);margin:10px 0;position:relative;}
   .vc-code{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--text-dim);position:relative;}
   .pop-input{width:100%;background:rgba(255,255,255,0.7);border:0.5px solid var(--line);color:var(--text);padding:9px 13px;font-family:'Outfit',sans-serif;font-size:13px;border-radius:10px;outline:none;transition:border-color 0.2s;margin-bottom:10px;}
-  .pop-input:focus{border-color:rgba(251,113,133,0.5);}
+  .pop-input:focus{border-color:rgba(225,29,72,0.5);}
   /* Fleet */
   .fleet-tiers-pop{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px;}
-  .ft-pop{background:rgba(255,251,235,0.8);border:0.5px solid var(--line);border-radius:10px;padding:0.85rem;text-align:center;}
-  .ft-pop.best{border-color:rgba(251,113,133,0.4);background:rgba(251,113,133,0.06);}
+  .ft-pop{background:rgba(255,248,240,0.92);border:0.5px solid var(--line);border-radius:10px;padding:0.85rem;text-align:center;}
+  .ft-pop.best{border-color:rgba(225,29,72,0.4);background:rgba(225,29,72,0.06);}
   .ft-v{font-size:11px;color:var(--text-dim);margin-bottom:3px;}
   .ft-d{font-family:'Playfair Display',serif;font-size:22px;color:var(--accent);}
   .ft-l{font-size:10px;color:var(--text-dim);margin-top:2px;}
@@ -187,6 +189,7 @@
     .small-note{font-size:13px;}
     .plan-terms{grid-template-columns:1fr;font-size:12px;}
     nav ul{display:none;}
+    .mob-nav{display:flex;align-items:center;gap:8px;}
     #booking .calendar-embed{height:900px;}
     #calendly-test .slabel,#calendly-test h2,#calendly-test .calendar-note{padding-left:1rem;padding-right:1rem;}
   }
@@ -196,9 +199,9 @@
 <div class="site">
 
 <!-- INFO POPUPS -->
-<div id="info-overlay" style="display:none;position:fixed;inset:0;background:rgba(153,27,27,0.15);backdrop-filter:blur(6px);z-index:2000;align-items:flex-start;justify-content:center;padding-top:70px;overflow-y:auto;" onclick="closeInfoPopup(event)">
-  <div id="info-modal" style="background:var(--bg);border:0.5px solid var(--line);border-radius:18px;width:100%;max-width:700px;max-height:80vh;overflow-y:auto;margin:0 1rem 2rem;position:relative;box-shadow:0 32px 64px rgba(153,27,27,0.18);">
-    <button onclick="closeInfoPopup({target:document.getElementById('info-overlay')})" style="position:sticky;top:0;float:right;margin:1rem 1rem 0 0;background:rgba(153,27,27,0.08);border:none;font-size:18px;color:var(--text-dim);cursor:pointer;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:10;">✕</button>
+<div id="info-overlay" style="display:none;position:fixed;inset:0;background:rgba(225,29,72,0.15);backdrop-filter:blur(6px);z-index:2000;align-items:flex-start;justify-content:center;padding-top:70px;overflow-y:auto;" onclick="closeInfoPopup(event)">
+  <div id="info-modal" style="background:var(--bg);border:0.5px solid var(--line);border-radius:18px;width:100%;max-width:700px;max-height:80vh;overflow-y:auto;margin:0 1rem 2rem;position:relative;box-shadow:0 32px 64px rgba(225,29,72,0.18);">
+    <button onclick="closeInfoPopup({target:document.getElementById('info-overlay')})" style="position:sticky;top:0;float:right;margin:1rem 1rem 0 0;background:rgba(225,29,72,0.08);border:none;font-size:18px;color:var(--text-dim);cursor:pointer;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;z-index:10;">✕</button>
     <div id="info-content" style="padding:1.8rem;clear:both;"></div>
   </div>
 </div>
@@ -223,6 +226,21 @@
     </li>
     <li><a class="nav-cta" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">Book now</a></li>
   </ul>
+  <!-- Mobile nav -->
+  <div class="mob-nav">
+    <button onclick="toggleMobMenu(event)" style="background:rgba(225,29,72,0.08);border:0.5px solid var(--line);color:var(--text);font-size:13px;font-family:'Outfit',sans-serif;padding:7px 13px;border-radius:999px;cursor:pointer;">Info ▾</button>
+    <button onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})" style="background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;border:none;font-size:13px;font-family:'Outfit',sans-serif;padding:7px 14px;border-radius:999px;cursor:pointer;font-weight:500;">Book</button>
+    <div id="mob-menu" style="display:none;position:absolute;top:calc(100% + 8px);right:1rem;background:rgba(255,245,245,0.97);backdrop-filter:blur(16px);border:0.5px solid var(--line);border-radius:14px;padding:8px;min-width:210px;box-shadow:0 16px 40px rgba(225,29,72,0.14);z-index:9999;">
+      <div class="info-menu-item" onclick="showPopup('whyus');closeMobMenu()">🏆 Why choose us?</div>
+      <div class="info-menu-item" onclick="showPopup('sizeguide');closeMobMenu()">🚗 Vehicle size guide</div>
+      <div class="info-menu-item" onclick="showPopup('faq');closeMobMenu()">❓ FAQ</div>
+      <div class="info-menu-item" onclick="showPopup('reviews');closeMobMenu()">★ Customer reviews</div>
+      <div class="info-menu-sep"></div>
+      <div class="info-menu-item" onclick="showPopup('voucher');closeMobMenu()">🎁 Gift vouchers</div>
+      <div class="info-menu-item" onclick="showPopup('fleet');closeMobMenu()">🚐 Fleet &amp; business</div>
+      <div class="info-menu-item" onclick="showPopup('map');closeMobMenu()">📍 Service area</div>
+    </div>
+  </div>
 </nav>
 
 <div class="hero">
@@ -273,9 +291,9 @@
       #my-cal-inline-mobile-valeting { transition: height 0.3s ease; }
       #my-cal-inline-mobile-valeting iframe { display:block; width:100%; border:none; }
     </style>
-    <div style="width:100%;height:740px;overflow:hidden;background:#FFFBEB;border-radius:8px;position:relative;" id="my-cal-inline-mobile-valeting"></div>
+    <div style="width:100%;height:740px;overflow:hidden;background:#FFF5F5;border-radius:8px;position:relative;" id="my-cal-inline-mobile-valeting"></div>
     <!-- Overlay to hide Cal.com branding at the bottom -->
-    <div style="height:44px;background:#FFFBEB;margin-top:-44px;position:relative;z-index:10;border-radius:0 0 8px 8px;"></div>
+    <div style="height:44px;background:#FFF5F5;margin-top:-44px;position:relative;z-index:10;border-radius:0 0 8px 8px;"></div>
     <script>
       // Auto-resize container to match Cal iframe content height
       window.addEventListener('message', function(e) {
@@ -313,16 +331,16 @@
         "layout": "month_view",
         "cssVarsPerTheme": {
           "light": {
-            "cal-brand":           "#FB7185",
-            "cal-text":            "#991B1B",
-            "cal-text-emphasis":   "#7f1d1d",
-            "cal-text-muted":      "rgba(153,27,27,0.5)",
-            "cal-border":          "rgba(153,27,27,0.15)",
-            "cal-border-emphasis": "#FB7185",
-            "cal-border-default":  "rgba(153,27,27,0.18)",
-            "cal-bg":              "#FFFBEB",
-            "cal-bg-emphasis":     "#FECACA",
-            "cal-bg-subtle":       "#fff7f0"
+            "cal-brand":           "#E11D48",
+            "cal-text":            "#334155",
+            "cal-text-emphasis":   "#292524",
+            "cal-text-muted":      "rgba(225,29,72,0.5)",
+            "cal-border":          "rgba(225,29,72,0.15)",
+            "cal-border-emphasis": "#E11D48",
+            "cal-border-default":  "rgba(225,29,72,0.18)",
+            "cal-bg":              "#FFF5F5",
+            "cal-bg-emphasis":     "#FFE4E8",
+            "cal-bg-subtle":       "#FFF5F5"
           }
         }
       });
@@ -337,10 +355,10 @@
 
 <!-- PACKAGE MODAL -->
 <div id="pkg-modal-overlay" class="pkg-modal-overlay" onclick="closePkgModal(event)" style="display:none;">
-  <div id="pkg-modal" onclick="event.stopPropagation()" style="background:var(--card);border:0.5px solid var(--line);overflow-y:auto;box-shadow:0 32px 72px rgba(153,27,27,0.22);position:relative;font-family:'Outfit',sans-serif;">
+  <div id="pkg-modal" onclick="event.stopPropagation()" style="background:var(--card);border:0.5px solid var(--line);overflow-y:auto;box-shadow:0 32px 72px rgba(225,29,72,0.22);position:relative;font-family:'Outfit',sans-serif;">
 
     <!-- Close -->
-    <button type="button" class="pkg-modal-close" onclick="closePkgModal()" style="position:absolute;top:14px;right:16px;background:rgba(153,27,27,0.08);border:none;border-radius:50%;width:30px;height:30px;cursor:pointer;font-size:16px;color:var(--text-soft);display:flex;align-items:center;justify-content:center;z-index:2;">✕</button>
+    <button type="button" class="pkg-modal-close" onclick="closePkgModal()" style="position:absolute;top:14px;right:16px;background:rgba(225,29,72,0.08);border:none;border-radius:50%;width:30px;height:30px;cursor:pointer;font-size:16px;color:var(--text-soft);display:flex;align-items:center;justify-content:center;z-index:2;">✕</button>
 
     <!-- Header -->
     <div id="mpkg-header" style="padding:1.6rem 1.6rem 1rem;border-bottom:0.5px solid var(--line);">
@@ -361,7 +379,7 @@
       <div>
         <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);margin-bottom:8px;">Your vehicle size</div>
         <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:7px;" id="size-btns">
-          <button class="size-btn active" data-surcharge="0" onclick="selectSize(this,0)" style="border:0.5px solid var(--accent);background:rgba(251,113,133,0.12);color:var(--text);border-radius:10px;padding:9px 4px;font-family:'Outfit',sans-serif;font-size:12px;cursor:pointer;transition:all 0.18s;">🚗 Standard</button>
+          <button class="size-btn active" data-surcharge="0" onclick="selectSize(this,0)" style="border:0.5px solid var(--accent);background:rgba(225,29,72,0.12);color:var(--text);border-radius:10px;padding:9px 4px;font-family:'Outfit',sans-serif;font-size:12px;cursor:pointer;transition:all 0.18s;">🚗 Standard</button>
           <button class="size-btn" data-surcharge="10" onclick="selectSize(this,10)" style="border:0.5px solid var(--line);background:transparent;color:var(--text-soft);border-radius:10px;padding:9px 4px;font-family:'Outfit',sans-serif;font-size:12px;cursor:pointer;transition:all 0.18s;">🚙 SUV / MPV<br><span style="font-size:10px;color:var(--accent);">+£10</span></button>
           <button class="size-btn" data-surcharge="15" onclick="selectSize(this,15)" style="border:0.5px solid var(--line);background:transparent;color:var(--text-soft);border-radius:10px;padding:9px 4px;font-family:'Outfit',sans-serif;font-size:12px;cursor:pointer;transition:all 0.18s;">🚐 Van<br><span style="font-size:10px;color:var(--accent);">+£15</span></button>
         </div>
@@ -374,7 +392,7 @@
       </div>
 
       <!-- Total -->
-      <div id="mpkg-total-row" style="background:linear-gradient(135deg,rgba(251,113,133,0.13),rgba(254,202,202,0.22));border:1px solid rgba(251,113,133,0.3);border-radius:14px;padding:1.1rem 1.2rem;display:flex;justify-content:space-between;align-items:center;">
+      <div id="mpkg-total-row" style="background:linear-gradient(135deg,rgba(251,113,133,0.13),rgba(255,228,232,0.22));border:1px solid rgba(225,29,72,0.3);border-radius:14px;padding:1.1rem 1.2rem;display:flex;justify-content:space-between;align-items:center;">
         <div>
           <div style="font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--text-dim);margin-bottom:2px;">Estimated total</div>
           <div style="font-size:10px;color:var(--text-dim);">incl. VAT · final price confirmed on booking</div>
@@ -384,11 +402,11 @@
       </div>
 
       <!-- CTA -->
-      <a id="mpkg-wa-btn" href="#" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#991b1b;border:none;padding:14px 22px;font-family:'Outfit',sans-serif;font-size:14px;font-weight:500;border-radius:999px;cursor:pointer;text-decoration:none;box-shadow:0 10px 24px rgba(251,113,133,0.28);transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 16px 30px rgba(251,113,133,0.36)'" onmouseout="this.style.transform='';this.style.boxShadow='0 10px 24px rgba(251,113,133,0.28)'">
+      <a id="mpkg-wa-btn" href="#" target="_blank" style="display:flex;align-items:center;justify-content:center;gap:8px;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;border:none;padding:14px 22px;font-family:'Outfit',sans-serif;font-size:14px;font-weight:500;border-radius:999px;cursor:pointer;text-decoration:none;box-shadow:0 10px 24px rgba(225,29,72,0.28);transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 16px 30px rgba(251,113,133,0.36)'" onmouseout="this.style.transform='';this.style.boxShadow='0 10px 24px rgba(225,29,72,0.28)'">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.524 5.855L.057 23.886a.75.75 0 0 0 .906.98l6.207-1.632A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.695 9.695 0 0 1-4.942-1.354l-.355-.211-3.68.968.984-3.595-.231-.369A9.712 9.712 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
         Book via WhatsApp
       </a>
-      <button onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'});closePkgModal();" style="background:transparent;border:0.5px solid rgba(153,27,27,0.22);color:var(--text-soft);padding:11px;font-family:'Outfit',sans-serif;font-size:13px;border-radius:999px;cursor:pointer;transition:all 0.18s;" onmouseover="this.style.borderColor='rgba(251,113,133,0.6)';this.style.color='var(--text)'" onmouseout="this.style.borderColor='rgba(153,27,27,0.22)';this.style.color='var(--text-soft)'">Or pick a date in the calendar ↓</button>
+      <button onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'});closePkgModal();" style="background:transparent;border:0.5px solid rgba(225,29,72,0.22);color:var(--text-soft);padding:11px;font-family:'Outfit',sans-serif;font-size:13px;border-radius:999px;cursor:pointer;transition:all 0.18s;" onmouseover="this.style.borderColor='rgba(251,113,133,0.6)';this.style.color='var(--text)'" onmouseout="this.style.borderColor='rgba(225,29,72,0.22)';this.style.color='var(--text-soft)'">Or pick a date in the calendar ↓</button>
 
     </div>
   </div>
@@ -397,7 +415,7 @@
 <style>
   .pkg-modal-overlay{
     position:fixed;inset:0;z-index:9000;
-    background:rgba(153,27,27,0.18);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+    background:rgba(225,29,72,0.18);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
     align-items:center;justify-content:center;padding:1rem;
   }
   #pkg-modal-overlay.open{display:flex!important;}
@@ -411,9 +429,9 @@
   @keyframes slideModal{from{opacity:0;transform:translateY(28px) scale(0.97);}to{opacity:1;transform:translateY(0) scale(1);}}
   .pkg{cursor:pointer;}
   .extra-row{display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,0.55);border:0.5px solid var(--line);border-radius:10px;padding:9px 12px;transition:border-color 0.18s,background 0.18s;cursor:pointer;}
-  .extra-row:hover{border-color:rgba(251,113,133,0.4);background:rgba(251,113,133,0.06);}
+  .extra-row:hover{border-color:rgba(225,29,72,0.4);background:rgba(225,29,72,0.06);}
   .extra-row input[type=checkbox]{accent-color:var(--accent);width:15px;height:15px;cursor:pointer;flex-shrink:0;}
-  .extra-row.checked{border-color:rgba(251,113,133,0.5);background:rgba(251,113,133,0.1);}
+  .extra-row.checked{border-color:rgba(225,29,72,0.5);background:rgba(225,29,72,0.1);}
   .included-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 10px;}
   .extra-main{display:flex;flex-direction:column;gap:2px;}
   .extra-main .extra-label{font-size:13px;color:var(--text);}
@@ -421,7 +439,7 @@
   .extras-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;}
   @media(max-width:640px){.included-grid,.extras-grid{grid-template-columns:1fr;}}
   #pkg-modal::-webkit-scrollbar{width:4px;}
-  #pkg-modal::-webkit-scrollbar-thumb{background:rgba(251,113,133,0.35);border-radius:4px;}
+  #pkg-modal::-webkit-scrollbar-thumb{background:rgba(225,29,72,0.35);border-radius:4px;}
 
   /* Mobile: full-viewport sheet so popups feel large and readable */
   @media(max-width:640px){
@@ -520,7 +538,7 @@ function openPkgModal(key) {
 
   // Reset size buttons
   document.querySelectorAll('.size-btn').forEach((b,i) => {
-    if(i===0){b.style.border='0.5px solid var(--accent)';b.style.background='rgba(251,113,133,0.12)';b.style.color='var(--text)';}
+    if(i===0){b.style.border='0.5px solid var(--accent)';b.style.background='rgba(225,29,72,0.12)';b.style.color='var(--text)';}
     else{b.style.border='0.5px solid var(--line)';b.style.background='transparent';b.style.color='var(--text-soft)';}
   });
 
@@ -574,7 +592,7 @@ function selectSize(btn, surcharge) {
     b.style.color='var(--text-soft)';
   });
   btn.style.border='0.5px solid var(--accent)';
-  btn.style.background='rgba(251,113,133,0.12)';
+  btn.style.background='rgba(225,29,72,0.12)';
   btn.style.color='var(--text)';
   updateTotal();
   updateWALink();
@@ -684,7 +702,7 @@ const INFO_CONTENT = {
     </div>
     <div style="margin-top:12px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
       <span style="font-size:12px;color:var(--text-dim);">4.9 ★ average · Google Reviews</span>
-      <a href="#" style="font-size:12px;color:var(--accent);border:0.5px solid rgba(251,113,133,0.4);padding:7px 14px;border-radius:999px;text-decoration:none;background:rgba(251,113,133,0.06);">★ Leave a review — get £5 off</a>
+      <a href="#" style="font-size:12px;color:var(--accent);border:0.5px solid rgba(225,29,72,0.4);padding:7px 14px;border-radius:999px;text-decoration:none;background:rgba(225,29,72,0.06);">★ Leave a review — get £5 off</a>
     </div>`,
 
   map: `
@@ -695,7 +713,7 @@ const INFO_CONTENT = {
     <div class="pc-tags"><span class="pc-tag pri">BN20</span><span class="pc-tag pri">BN21</span><span class="pc-tag pri">BN22</span><span class="pc-tag pri">BN23</span><span class="pc-tag pri">BN24</span></div>
     <div style="margin-bottom:8px;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--text-dim);">Extended area — +£3–5 fuel surcharge</div>
     <div class="pc-tags"><span class="pc-tag">TN22</span><span class="pc-tag">TN20</span><span class="pc-tag">TN21</span><span class="pc-tag">BN25</span><span class="pc-tag">BN26</span><span class="pc-tag">BN8</span><span class="pc-tag">BN27</span></div>
-    <div style="background:rgba(251,113,133,0.07);border:0.5px solid rgba(251,113,133,0.2);border-radius:10px;padding:10px 14px;margin-top:10px;font-size:12px;color:var(--text-soft);line-height:1.6;">
+    <div style="background:rgba(225,29,72,0.07);border:0.5px solid rgba(225,29,72,0.2);border-radius:10px;padding:10px 14px;margin-top:10px;font-size:12px;color:var(--text-soft);line-height:1.6;">
       <strong style="color:var(--text);">Not sure if we cover you?</strong> Drop us a WhatsApp with your postcode and we'll confirm. We do occasionally travel further for Premium Detail bookings.
     </div>`,
 
@@ -748,6 +766,17 @@ const INFO_CONTENT = {
 
 let _infoMenuOpen = false;
 
+function toggleMobMenu(e) {
+  e.stopPropagation();
+  const m = document.getElementById('mob-menu');
+  const open = m.style.display === 'block';
+  m.style.display = open ? 'none' : 'block';
+}
+
+function closeMobMenu() {
+  document.getElementById('mob-menu').style.display = 'none';
+}
+
 function toggleInfoMenu(e) {
   e.stopPropagation();
   _infoMenuOpen = !_infoMenuOpen;
@@ -761,6 +790,7 @@ document.addEventListener('click', () => {
     document.getElementById('info-menu').style.display = 'none';
     document.getElementById('info-chevron').style.transform = '';
   }
+  closeMobMenu();
 });
 
 function showPopup(key) {
